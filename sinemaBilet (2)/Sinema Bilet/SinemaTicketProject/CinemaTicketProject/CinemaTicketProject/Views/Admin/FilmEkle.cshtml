@@ -1,0 +1,112 @@
+﻿@model CinemaTicketProject.Models.Film
+
+@{
+    ViewBag.Title = "FilmEkle";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+}
+
+<h2>FilmEkle</h2>
+@*@using (Html.BeginForm("Index",
+                        "Home",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))*@
+
+@using (Html.BeginForm("FilmEkle","Admin",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+<div class="form-horizontal">
+    <h4>Film</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FilmAdi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmAdi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmAciklamasi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FilmAciklamasi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmAciklamasi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmSure, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FilmSure, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FilmSure, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.FilmAfis, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FilmAfis, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FilmAfis, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    <div class="form-group">
+        @Html.LabelFor(model => model.VizyonTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.VizyonTarihi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.VizyonTarihi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilmFiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FilmFiyat, new { htmlAttributes = new { @class = "form-control" } })
+            @*<input type="file" id="imgfile" name="imgfile" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />*@
+            @Html.ValidationMessageFor(model => model.FilmFiyat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.ResimDosyası, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ResimDosyası, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ResimDosyası, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ResimYol, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.ResimYol, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input type="file" id="imgfile" name="imgfile" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
+                @Html.ValidationMessageFor(model => model.ResimYol, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Film Oluştur" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
+        </div>
+    </div>
+</div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+
+
+
+
+
+
+

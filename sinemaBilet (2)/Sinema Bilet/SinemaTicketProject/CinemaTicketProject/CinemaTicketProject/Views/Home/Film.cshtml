@@ -1,0 +1,104 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.Film>
+
+@{
+    ViewBag.Title = "Film";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+@*<div class="f-widget featpro">
+    <div class="container">
+        <div class="title-widget-bg">
+            <div class="title-widget"> Tüm Filmler</div>
+            <div class="carousel-nav">
+                <a class="prev"></a>
+                <a class="next"></a>
+            </div>
+        </div>
+        </div></div>*@
+<br />
+<h2 style="text-align:center; ">Filmler</h2>
+<hr />
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    @foreach (var film in Model)
+                    {
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                @*@if (film.Resim.Count != 0)
+                                {
+                                    <a href="/Home/Film?FilmId=@film.FilmId" style="width:280px;height:220px;"><img src="@film.Resim.FirstOrDefault(x=>x.ResimBit==false).ResimYol" alt="" class="img-responsive"></a>
+                                    
+                                }*@
+                                @*<a href="~/Content/upload/@film.ResimYol" height="220" width="349" />*@
+                                <img src="/Images/@film.ResimYol" height="250" width="350" class="img-responsive" />
+                                @*<a href="/Home/Film?FilmId=@film.FilmId" style="width:280px;height:220px;">
+                                    <img src="~/Images/@film.FilmAfis" width="100" height="100" alt="" class="img-responsive" /></a>*@
+                                    @*<img src="~/mm/1.jpg" alt="@film.FilmAdi" />*@
+                                    <div class="card-body">
+                                        <b class="card-text">@film.FilmAdi</b>
+                                        <p class="card-text">@film.FilmAciklamasi</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                                @Html.ActionLink("Detay", "FilmDetay", "Home", new { id = film.FilmId }, new { @class = "btn btn-sm btn-success" })
+                                                @Html.ActionLink("Bilet Al", "BiletEkle", "Home", new { id = film.FilmId }, new { @class = "btn btn-default btn-dark" })
+                                                @*<button class="btn btn-sm btn-success">Detay </button>*@
+                                                @* <a asp-controller="Home" asp-action="Detay" asp-route-id="@film.FilmId" class="btn btn-sm btn-success">Detay</a>*@
+                                            </div>
+                                            <span class="text-muted"><small>@film.FilmFiyat<span>TL</span></small></span>
+                                            <span class="text-muted"><small>@film.FilmSure<span> Saat</span></small></span>
+                                        </div>
+
+                                    </div>
+</div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+
+        @*<div id="product-carousel" class="owl-carousel owl-theme">
+            @foreach (var films in Model)
+            {
+                <div class="item">
+                    <div class="productwrap">
+                        <div class="pr-img">
+                            <div class="hot"></div>
+
+                            <a href="/Home/Film?FilmId=@films.FilmId"><img src="~/mm/11.png" alt="" class="img-responsive" style="width:120px;height:80px;"></a>
+                        </div>
+                        <span class="pricetag blue">Film Adı: @films.FilmAdi</span><br />
+                        <span class="pricetag blue">Film Açıklaması: @films.FilmAciklamasi</span><br />
+                        <span class="smalltitle">Film Fiyatı: @films.FilmFiyat<span> TL</span></span><br />
+                        <span class="smalldesc">Film Süresi: @films.FilmSure</span><span> Saat</span><br />
+                        <span class="smalltitle">Film Vizyon Tarihi: @films.VizyonTarihi</span><br />
+                        <span class="smalltitle">Tür : @films.FilmTur</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>*@
+@*<caption>
+    Tüm Filmler
+</caption>
+<table border="1" cellpadding="1" cellspacing="1" align="center">
+    <tr>
+        <th>Film Adı:</th>
+        <th>Film Açıklaması:</th>
+        <th>Film Fiyatı:</th>
+        <th>Film Süresi:</th>
+        <th>Film Vizyon Tarihi:</th>
+        @*<th>Tür :</th>
+    </tr>
+<tr>
+    <th>@films.FilmAdi</th>
+        <th>@films.FilmAciklamasi</th>
+        <th>@films.FilmFiyat</th>
+        <th>@films.FilmSure</th>
+        <th>@films.VizyonTarihi</th>
+        <th>@films.FilmTur</th>
+</tr>
+
+</table>*@

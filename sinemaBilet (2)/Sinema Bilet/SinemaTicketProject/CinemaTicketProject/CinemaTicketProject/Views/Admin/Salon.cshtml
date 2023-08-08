@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.Salon>
+
+@{
+    ViewBag.Title = "Salon";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+}
+
+<h2>Salon Listesi</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            SalonAdi
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SalonKapasite)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.SalonSiraSayisi)
+        </th>*@
+        <th>
+            SalonSlogan
+        </th>
+        <th>
+            SalonAciklamasi
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalonAdi)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.SalonKapasite)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.SalonSiraSayisi)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.SalonSlogan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalonAciklamasi)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SalonId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SalonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SalonId })*
+        </td>*@
+        <td>
+            @Html.ActionLink("Salon Sil", "SalonSil", "Admin", new { SalonID = item.SalonId, }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" })
+        </td>
+    </tr>
+}
+
+</table>

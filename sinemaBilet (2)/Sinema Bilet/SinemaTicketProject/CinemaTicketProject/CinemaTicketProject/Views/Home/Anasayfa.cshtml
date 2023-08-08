@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+
+<br />
+<h1 style="text-align:center; background-color:aliceblue ">PİX CİNEMA CLUB - SİNEMA DÜNYASI</h1>
+<br />
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url('/Images/slider1.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="display-4">Unutulmaz Filmler</h2>
+                <p class="lead">
+                    Unutulmaz filmlerden,
+                    unutulmaz replikler!.
+                </p>
+            </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        @*<div class="carousel-item" style="background-image: url('/Images/aa.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="display-4">Pix Cinema Club | Sinema Dünyasi </h2>
+                <p class="lead">
+                   
+                </p>
+            </div>
+        </div>*@
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('/Images/slider2.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+                <h2 class="display-4">Ayrıcalıklı Salonlar</h2>
+                <p class="lead">Türkiye’de sadece Pix Cinema Club'da!</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Önceki</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Sonraki</span>
+    </a>
+</div>
+<div class="container">
+    <div class="row">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+    <hr>
+    <br />
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Pix Cinema Club</h2>
+            <p>Saaatler içine sığdırılan küçük bir dünya...</p>
+            <ul>
+                <li>
+                    <strong>Pix Dünyasında Neler Var ? </strong>
+                </li>
+                <br />
+                <li>* Unutulmaz Filmler</li>
+                <li>* Ayrıcalıklı Salonlar</li>
+                <li>* Sınırsız Eğlence</li>
+            </ul>
+            <p>Yakında Tüm Türkiyedeyiz...</p>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid rounded" style="width:800px; height:310px;" src="~/Images/anasayfa.jpg" alt="">
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <hr>
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <br />
+            <p>
+                Unutulmaz filmlerden,
+                unutulmaz replikler!.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <br />
+            @Html.ActionLink("Filmlere Göz At...", "Film", "Home", new { model= Model }, new { @class = "btn btn-lg btn-secondary btn-block" })
+        </div>
+    </div>
+
+</div>
+</div>
+
+

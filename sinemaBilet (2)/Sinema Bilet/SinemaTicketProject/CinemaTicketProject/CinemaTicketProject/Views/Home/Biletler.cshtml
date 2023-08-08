@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.Bilet>
+
+@{
+    ViewBag.Title = "Biletler";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+
+<h2>Biletleriniz</h2>
+
+<div class="p-2">
+    @if (Model.Count() > 0)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KoltukNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Film.FilmAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Musteri.MusteriAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salon.SalonAdi)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KoltukNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Film.FilmAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Musteri.MusteriAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Salon.SalonAdi)
+                    </td>
+                    <td>
+                        @Html.ActionLink("İptal Et", "BiletSil", new { id = item.BiletId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    }
+    else
+    {
+        <label>Henüz bilet satın almadınız.</label>
+        <div>
+            @Html.ActionLink("Filmlere göz at >>", "Film", null, new { @class = "btn btn-primary btn-sm" })
+        </div>
+       
+    }
+
+</div>

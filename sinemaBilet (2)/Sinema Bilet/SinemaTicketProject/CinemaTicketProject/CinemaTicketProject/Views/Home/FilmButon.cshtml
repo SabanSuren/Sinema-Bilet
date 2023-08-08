@@ -1,0 +1,19 @@
+﻿@model CinemaTicketProject.Models.Bilet
+
+@{
+    Layout = "~/Views/Shared/Sin.cshtml";
+    ViewBag.Title = "FilmButon";
+}
+
+<h2>FilmButon</h2>
+
+@if (Session["totalcount"] != null)
+{
+    <button id="popcart" onclick="location.href='/Bilet/BiletListe'" class="btn btn-default btn-chart btn-sm "><span class="mychart">Bilet</span>|<span class="allprice">@Session["sum"] TL</span></button>
+
+}
+else
+{
+    <button id="popcart" class="btn btn-default btn-chart btn-sm "><span class="mychart">Bilet</span>|<span class="allprice">@Session["sum"] TL</span></button>
+
+}

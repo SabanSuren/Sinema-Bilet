@@ -1,0 +1,32 @@
+﻿@model CinemaTicketProject.Models.FilmTur
+
+@{
+    ViewBag.Title = "FilmTurSil";
+}
+
+<h2>FilmTurSil</h2>
+
+<h3>Bu öğeyi silmek istediğinizden emin misiniz</h3>
+<div>
+    <h4>FilmTur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TurAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TurAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "FilmTur","Admin")
+        </div>
+    }
+</div>

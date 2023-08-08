@@ -1,0 +1,37 @@
+﻿@model CinemaTicketProject.Models.FilmTur
+
+@{
+    ViewBag.Title = "FilmTurEkle";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+}
+
+<h2>FilmTurEkle</h2>
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                Kategori Adı
+                @Html.EditorFor(model => model.TurAdi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TurAdi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" />
+            </div>
+        </div>
+    </div>
+}

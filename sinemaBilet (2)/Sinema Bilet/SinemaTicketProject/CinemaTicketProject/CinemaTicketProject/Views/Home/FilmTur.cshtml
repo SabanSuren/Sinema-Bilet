@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.FilmTur>
+
+@{
+    ViewBag.Title = "FilmTur";
+}
+
+@*<h2>FilmTur</h2>
+
+
+@foreach (var filmTur in Model)
+{
+    <li><a href="/Home/KategoriUrunListe?kategoriID=@filmTur.TurId">@filmTur.TurAdi</a></li>
+}*@

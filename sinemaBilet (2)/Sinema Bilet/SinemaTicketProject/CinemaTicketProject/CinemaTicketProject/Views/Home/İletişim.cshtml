@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+
+<link href="~/mm/css/style.css" rel="stylesheet" />
+
+<div class="content-middle">
+    <br />
+    <h2 style="text-align:center; ">İletisim</h2>
+    <hr />
+    <div class="wrap">
+
+        <div class="map">
+            <iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com.tr/maps/place/Mersin,+Akdeniz%2FMersin/36.7429082,34.3888188,11z/data=!3m1!4b1!4m5!3m4!1s0x1527f4a4c0be6e9f:0x4dbef2b1f81e7d77!8m2!3d36.8120334!4d34.6416092"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px"></a></small>
+        </div>
+        <div class="portfolio">
+            <div class="col_1_of_bottom span_1_of_first1">
+                <h5><a href="#">Adres</a></h5>
+                <ul class="list3">
+                    <li>
+                        <img src="images/home.png" alt="" />
+                        <div class="extra-wrap">
+                            <p>Lorem ipsum  consectetu,<br>dolor sit amet,.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col_1_of_bottom span_1_of_first1">
+                <h5><a href="#">Telefon Numarası</a></h5>
+                <ul class="list3">
+                    <li>
+                        <img src="images/phone.png" alt="" />
+                        <div class="extra-wrap">
+                            <p><span>Telefon:</span>+1 800 258 2598</p>
+                        </div>
+                        <img src="images/fax.png" alt="" />
+                        <div class="extra-wrap">
+                            <p><span>FAX:</span>+1 800 589 2587</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col_1_of_bottom span_1_of_first1">
+                <h5><a href="#">Email</a></h5>
+                <ul class="list3">
+                    <li>
+                        <img src="images/email.png" alt="" />
+                        <div class="extra-wrap">
+                            <p><span class="mail"><a href="#">mnarman</a></span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <form method="post" action="contact-post.html">
+            <div class="contact-form">
+                <div class="contact-to">
+                    <input type="text" class="text" value="Ad..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Ad...';}">
+                    <input type="text" class="text" value="Email..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email...';}" style="margin-left: 10px">
+                    <input type="text" class="text" value="Konu..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Konu...';}" style="margin-left: 10px">
+                </div>
+                <div class="text2">
+                    <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Mesaj..</textarea>
+                </div>
+                <span><input type="submit" class="" value="Gönder"></span>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.Bilet>
+
+@{
+    ViewBag.Title = "Biletim";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+
+<h2>Biletim</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BiletKoltukNumara)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SatisId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Film.FilmAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Musteri.MusteriAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salon.SalonAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BiletKoltukNumara)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SatisId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Film.FilmAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Musteri.MusteriAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salon.SalonAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BiletId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BiletId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BiletId })
+        </td>
+    </tr>
+}
+
+</table>

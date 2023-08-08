@@ -1,0 +1,65 @@
+﻿@model CinemaTicketProject.Models.Bilet
+
+@{
+    ViewBag.Title = "BiletSil";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+
+<h2>BiletSil</h2>
+
+<h3>Bileti iptal etmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Bilet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KoltukNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KoltukNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Film.FilmAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Film.FilmAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Musteri.MusteriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Musteri.MusteriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salon.SalonAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salon.SalonAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="İptal Et" class="btn btn-danger" /> |
+            @Html.ActionLink("Biletlerime geri dön", "Biletler")
+        </div>
+    }
+</div>

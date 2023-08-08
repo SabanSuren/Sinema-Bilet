@@ -1,0 +1,93 @@
+﻿@model CinemaTicketProject.Models.Bilet
+
+@{
+    ViewBag.Title = "BiletEkle";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+
+<h2>BiletEkle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Bilet</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(m => m.FilmId)
+    <div class="p-4">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            @{
+                foreach (var salon in Model.salonlar)
+                {
+                    <label class="btn btn-success">
+                        @Html.RadioButtonFor(x => x.SalonId, salon.SalonId, new { autocomplete = "off" })
+                        @(salon.SalonAdi)
+                    </label>
+                }
+            }
+
+        </div>
+    </div>
+    
+
+    <div id="koltuklar" style="display:none" class="btn-group btn-group-toggle py-2 px-4" data-toggle="buttons">
+
+    </div>
+        @Html.HiddenFor(m=>m.MusteriId)
+
+        <div class="form-group">
+            <input type="submit" value="Devam et" class="btn btn-outline-success" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            @{ 
+                if(ViewBag.Error!=null)
+                {
+                    @:alert(@ViewBag.Error)
+                }
+            }
+        })
+        $('input:radio[name=SalonId]').change(function () {
+            var ID = $(this).val()
+            var dataLocal = null;
+            var lastRow = null;
+            $.ajax({
+                url: '/Home/SalonBilgileri/' + ID,
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    
+                    $('#koltuklar').fadeOut().empty().delay(500);
+                    dataLocal = data;
+                    data.koltuklar.forEach(koltukEkle)
+                    $('#koltuklar').fadeIn();
+                }
+            })
+
+            function koltukEkle(item, index) {
+                if (lastRow !=item.KoltukSıra) {
+                    $('#koltuklar').append('<label class="btn">' + item.KoltukSıra + '</label>')
+                    lastRow = item.KoltukSıra;
+                }
+                if (dataLocal.secimKoltuklar.some(koltuk => koltuk.KoltukNum === item.KoltukNum)) {
+                    $('#koltuklar').append("<label class='btn btn-default disabled'><input disabled type='radio' autocomplete='off' id='KoltukNum' name='KoltukNum' value='" + item.KoltukId + "'>" + item.KoltukNum + "</label>");
+                }
+                else {
+                    $('#koltuklar').append("<label class='btn btn-success'><input type='radio' autocomplete='off' id='KoltukNum' name='KoltukNum' value='" + item.KoltukId + "'>" + item.KoltukNum + "</label>");
+                }
+                
+
+            }
+        });
+    </script>
+    }

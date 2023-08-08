@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+}
+
+<h2>Admin Anasayfa</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "ImageUpload";
+
+
+}
+
+<h2>ImageUpload</h2>
+
+<h2>ImageUpload</h2>
+@{
+    var image = WebImage.GetImageFromRequest("uploadfile");
+    if (image != null)
+    {
+        image.Write();
+    }
+}

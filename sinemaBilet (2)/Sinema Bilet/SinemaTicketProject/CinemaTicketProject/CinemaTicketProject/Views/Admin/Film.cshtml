@@ -1,0 +1,78 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.Film>
+
+@{
+    ViewBag.Title = "Film";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+}
+
+<h2>Film Listesi</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Film Adi
+        </th>
+        <th>
+            Film Açıklaması
+        </th>
+        <th>
+            Film Süresi
+        </th>
+        <th>
+            Film Fiyat
+        </th>
+        <th>
+            Film Resim
+        </th>
+        @*<th>
+            Vizyon Tarihi
+        </th>*@
+        <th>
+            Film Tür
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmAciklamasi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmSure)<span> Saat (dk)</span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmFiyat)<span> TL</span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResimYol)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.VizyonTarihi)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.FilmTur.TurAdi)
+        </td>
+
+
+
+        <td>
+            @Html.ActionLink("Film Detay", "FilmDetay", "Admin", new { id = item.FilmId, }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" })
+        </td>
+        <td>
+            @Html.ActionLink("Film Güncelle", "FilmDuzenle", "Admin", new { id = item.FilmId, }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" })
+        </td>
+        <td>
+            @Html.ActionLink("Film Sil", "FilmSil", "Admin", new { FilmID = item.FilmId, }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" })
+        </td>
+    </tr>
+    }
+
+</table>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9e92b34ef96a4cae8bfbd268c6550ea1" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="SinemaBiletModel.Bilet" Width="1.5" PointX="0.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.Film" Width="1.5" PointX="4" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.FilmSalonSeans" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.FilmTur" Width="1.5" PointX="0.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.Musteri" Width="1.5" PointX="8.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.Salon" Width="1.5" PointX="5.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.Seans" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SinemaBiletModel.sysdiagrams" Width="1.5" PointX="14.625" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="SinemaBiletModel.FK_Bilet_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="SinemaBiletModel.FK_Film_FilmTur" ManuallyRouted="false" />
+        <AssociationConnector Association="SinemaBiletModel.FK_FilmSalonSeans_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="SinemaBiletModel.FK_FilmSalonSeans_Salon" ManuallyRouted="false" />
+        <AssociationConnector Association="SinemaBiletModel.FK_FilmSalonSeans_Seans" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SinemaBiletModel.Admin" Width="1.5" PointX="11.5" PointY="0.625" />
+        <EntityTypeShape EntityType="SinemaBiletModel.BiletFilmListe" Width="1.5" PointX="8" PointY="4.875" />
+        <AssociationConnector Association="SinemaBiletModel.FK_BiletFilmListe_Bilet" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="SinemaBiletModel.FK_BiletFilmListe_Film" />
+        <AssociationConnector Association="SinemaBiletModel.FK_Bilet_Musteri" />
+        <AssociationConnector Association="SinemaBiletModel.FK_Bilet_Salon" />
+        <AssociationConnector Association="SinemaBiletModel.FK_Film_FilmTur1" />
+        <EntityTypeShape EntityType="SinemaBiletModel.Koltuk" Width="1.5" PointX="10.5" PointY="5.125" />
+        <AssociationConnector Association="SinemaBiletModel.FK_Koltuk_Film" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

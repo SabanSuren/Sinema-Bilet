@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CinemaTicketProject.Models.FilmTur>
+
+@{
+    ViewBag.Title = "FilmTur";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+}
+
+<h2>FilmTur</h2>
+
+<p style="color:red;">@Session["turhata"]</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Tur Ad
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TurAdi)
+            </td>
+            <td>@Html.ActionLink("Film Tür Sil", "FilmTurSil", "Admin", new { kategoriID = item.TurId }, new { @class = "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" })</td>
+        </tr>
+    }
+
+</table>

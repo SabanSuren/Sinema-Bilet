@@ -1,0 +1,118 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Pix Club | Sinema Dünyası</title>
+
+    <link href="~/mm/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- jQuery -->
+    <style>
+        .carousel-item {
+            height: 76vh;
+            min-height: 350px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .btn-success:hover {
+            cursor: pointer;
+        }
+    </style>
+    <link href="~/mm/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/mm/lib/album.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    <!-- slider -->
+
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="logo">
+                <a href="/Home/Anasayfa"><img src="~/mm/images/logo.png" alt="" /></a>
+
+            </div>
+            <div class="col-md-8">
+                <div class="pushright">
+                    <div class="top">
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="cssmenu">
+                <ul id="nav">
+                    <li class="active"><a href="/Home/Anasayfa">Anasayfa</a></li>
+                    <li><a href="/Home/Film">Filmler</a></li>
+                    <li><a href="/Home/Salon">Salonlar</a></li>
+                    <li><a href="/Home/İletişim">İletişim</a></li>
+                    <li><a href=""></a></li>
+                    @if (Session["MusteriId"] != null)
+                    {
+                        @Html.ActionLink("Biletlerim", "Biletler", "Home",new { id = Session["MusteriId"] }, new { @class = "btn btn-sm btn-success" })
+                        <a class="btn text-white">Hoşgeldiniz, @Session["MusteriAd"]</a>
+
+                        @Html.ActionLink("Çıkış Yap", "UserLogout", "Home", new { model = Model }, new { @class = "btn btn-default btn-dark" })
+
+                    }
+                    else
+                    {
+                        <li><a class="btn btn-dark" href="/Home/UserLogin">Giriş Yap</a></li>
+                        <li><a class="btn btn-sm btn-success" href="/Home/MusteriKayit">Üye Ol</a></li>
+                    }
+
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    @RenderBody()
+    <div class="footer">
+        <div class="wrap">
+            <div class="section group example">
+                <div class="col_1_of_2 span_1_of_2">
+                    <p>
+                        Sinema teknolojilerindeki gelişmeleri her zaman yakından takip eden ve bu yenilikleri Türk izleyicisi ile ilk önce buluşturan Pix,
+                        misafirlerinin sinema deneyimini en üst seviyeye çıkartmayı amaçlamaktadır.
+                        Bu tutku ile Pix, Türkiye’de dijital dönüşümünü tamamlayan, yani tüm görüntü ve ses sistemlerini 
+                        dijitalleştiren ilk sinema zinciri olmuştur.
+                        .
+                    </p>
+                    <div class="social-icons">
+                        <ul>
+                            <li class="facebook"><a href="#"><span> </span></a></li>
+                            <li class="twitter"><a href="#"><span> </span></a></li>
+                            <li class="rss"><a href="#"><span> </span></a></li>
+                        </ul>
+                    </div>
+               
+                    @*<div class="copy" style="text-align:center;">
+                        <p>© @DateTime.Now.Year Pix Cinema Club</p>
+                    </div>*@
+                </div>
+                <div class="col_1_of_2 span_1_of_2">
+                    <div class="search_box">
+                        <form>
+
+                            <img src="~/mm/images/email.png" alt="" />  <input type="text" value="Film Bültenimize Abone Ol" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Bültenimize Abone Ol';}">
+                            <input type="submit" value="Kayıt Ol">
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts",required:false)
+</body>
+</html>
+

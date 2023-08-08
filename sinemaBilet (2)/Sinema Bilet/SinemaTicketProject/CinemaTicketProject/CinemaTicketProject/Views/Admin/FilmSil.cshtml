@@ -1,0 +1,80 @@
+﻿@model CinemaTicketProject.Models.Film
+
+@{
+    ViewBag.Title = "FilmSil";
+}
+
+<h2>FilmSil</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Film</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmAciklamasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmAciklamasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmSure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmSure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmAfis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmAfis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VizyonTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VizyonTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilmTur.TurAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilmTur.TurAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

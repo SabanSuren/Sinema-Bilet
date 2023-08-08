@@ -1,0 +1,109 @@
+﻿@model CinemaTicketProject.Models.Film
+
+@{
+    ViewBag.Title = "FilmDetay";
+    Layout = "~/Views/Shared/Sin.cshtml";
+}
+<br />
+<h2 style="text-align:center; ">@Model.FilmAdi Detay</h2>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <img src="/Images/@Model.ResimYol" class="card-img-top" />
+                @*<img src="~/mm/1.jpg" class="card-img-top" alt="...">*@
+                <div class="card-body">
+                    <h5 class="card-title">@Model.FilmAdi</h5>
+                    <p class="card-text">@Model.FilmAciklamasi</p>
+                    <p class="card-text">@Model.FilmSure <b>Saat</b></p>
+
+                    <p class="card-text"><small class="text-muted">@Model.FilmFiyat <b>TL</b></small></p>
+                    <div class="btn-group">
+                        @Html.ActionLink("Bilet Al", "UserLogin", "Home", new { model = Model }, new { @class = "btn btn-default btn-dark" })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+</div>
+
+@*<div class="row">
+    <div class="col-md-9">
+        <div class="title-bg">
+            <div class="title"><b>Film Adı:</b> @Model.FilmAdi</div>
+            <div class="title"><b>Film Açıklaması:</b> @Model.FilmAciklamasi</div>
+            <div class="title"><b>Film Süresi:</b> @Model.FilmSure</div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 det-desc">
+                <div class="productdata">
+                    <div class="sharing">
+                        <div class="avatock"><span><b>Kategori:</b> @Model.FilmTur.TurAdi</span></div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>*@
+
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevateZoom-3.0.8.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
+<link rel="stylesheet" href="style.css">
+<link href="http://www.professorcloud.com/styles/cloud-zoom.css" rel="stylesheet" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+<script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+<script src="~/Scripts/app.js"></script>
+
+
+
+
+<script>
+    $(function () {
+        $('.sepeteEkle').on('click', function () {
+            debugger;
+            $.ajax({
+                url: "/Sepet/SepeteEkle",
+                type: 'POST',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                data: JSON.stringify({
+                    urun_id: "@Model.FilmId",
+
+                    adet : $("#qty").val()
+                    @*fiyat : "@Model.SatisFiyat",
+                    IndirimliFiyat: "@Model.IndirimliFiyat",
+                    adet: $("#qty").val()*@
+                }),
+                async: false
+            }).done(function (data) {
+                if (data === "true") {
+                    window.location.replace('/Bilet/BiletListele');
+                }
+                else {
+                    window.location.replace('/Checkout/AddressAndPayment');
+                }
+            });
+       });
+   });
+</script>

@@ -1,0 +1,37 @@
+﻿@model CinemaTicketProject.Models.Film
+
+@{
+    ViewBag.Title = "FilmDetay";
+    Layout = "~/Views/Shared/aa.cshtml";
+    if (Session["AdminId"] == null)
+    {
+        Response.Redirect("~/Admin/AdminGiris");
+    }
+
+}
+
+
+
+<h2 style="text-align:center;">@Model.FilmAdi Film Detayı</h2>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <img src="/Images/@Model.ResimYol" class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">@Model.FilmAdi</h5>
+                    <p class="card-text">@Model.FilmAciklamasi</p>
+                    <p class="card-text">@Model.FilmSure <b>Saat</b></p>
+
+                    <p class="card-text"><small class="text-muted">@Model.FilmFiyat <b>TL</b></small></p>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
